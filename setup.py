@@ -20,7 +20,7 @@ setup(
     description='Utah Lake Water Parameters',
     long_description='',
     keywords='',
-    author='ddolder',
+    author='Danisa Dolder',
     author_email='danisadolder@gmail.com',
     url='',
     license='',
