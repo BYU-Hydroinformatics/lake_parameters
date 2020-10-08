@@ -16,12 +16,12 @@ resource_files += find_resource_files('tethysapp/' + app_package + '/workspaces'
 
 setup(
     name=release_package,
-    version='0.0.1',
-    description='Utah Lake Water Parameters',
+    version='0.0.2',
+    description='Water Quality - Utah lakes',
     long_description='',
     keywords='',
     author='ddolder',
-    author_email='',
+    author_email='danisadolder@gmail.com',
     url='',
     license='',
     packages=find_namespace_packages(),

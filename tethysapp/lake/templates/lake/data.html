@@ -12,7 +12,8 @@
     {{ block.super }}
     <link href="{% static 'lake/css/map.css' %}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="crossorigin=""/>
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
     <style>
           #mapid { height: 550px; width: 500px; }
     </style>
@@ -70,7 +71,7 @@ set_map()
     <div class="column">
        <h3>{{fraction}} {{characteristic}}</h3>
       <div id='timeseries_plot'></div>
-      <input type="button" onclick="downloadButton();" name="download-button" class="btn btn-default" value="Download Data">
+      <!-- <input type="button" onclick="downloadButton();" name="download-button" class="btn btn-default" value="Download Data"> -->
     </div>
 </div>
 {% endblock %}

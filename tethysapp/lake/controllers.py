@@ -40,8 +40,7 @@ PARAM_MAX = {
 
 @login_required()
 def home(request):
-    context = {
-    }
+    context = {}
     return render(request, 'lake/home.html', context)
 
 @login_required()
@@ -49,7 +48,7 @@ def data(request):
     select_lake = SelectInput(display_text='Select a Lake',
                               name='select-lake',
                               multiple=False,
-                              options=[('Utah Lake', 'utah'), ('Salt Lake', 'salt')],
+                              options=[('Utah Lake', 'utah'), ('Great Salt Lake', 'salt')],
                               initial=['Utah Lake']
                               )
     select_data = SelectInput(display_text='Select Data',
@@ -76,7 +75,7 @@ def data(request):
     context['all_coords_stations'] = getstations['all_coords_stations']
     context['dif_coords_stations'] = getstations['dif_coords_stations']
     context['all_stations'] = getstations['all_stations']
-    context['lake_map'] = getstations['lake_map']
+    # context['lake_map'] = getstations['lake_map']
     context['select_lake'] = select_lake
     context['select_data'] = select_data
     context['select_parameter'] = select_parameter

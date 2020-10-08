@@ -12,17 +12,10 @@
     {{ block.super }}
     <link href="{% static 'lake/css/map.css' %}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="crossorigin=""/>
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
     <style>
-          #mapid { height: 700px; width: 650px; }
-    </style>
-    <style>
-      .column {
-        float: left;
-        width: 50%;
-        margin-bottom: 16px;
-        padding: 0 10px;
-      }
+          #mapid { height: 550px; width: 600px; }
     </style>
 {% endblock %}
 
@@ -33,26 +26,23 @@
     crossorigin=""></script>
 <script src="{% static 'lake/js/L.TileLayer.BetterWMS.js' %}" type="text/javascript"></script>
 <script>
-var allstations_coords = {{all_coords_stations|safe}}
-var difcoords = {{dif_coords_stations|safe}}
-var allstations = {{all_stations|safe}}
-var imgUrl = "{% static 'lake/images/lake.jpg' %}"
-var byuImgUrl = "{% static '/lake/images/byu.png' %}"
-var raindropImgUrl = "{% static '/lake/images/raindrop2.png' %}"
-var raindrop2ImgUrl = "{% static '/lake/images/raindrop4.png' %}"
-var mymap = L.map("mapid")
-  L.tileLayer(
-    "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-    {
-      attribution:
-        'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-      maxZoom: 32,
-      id: "mapbox/streets-v11",
-      accessToken:
-        "pk.eyJ1IjoiYWJoaXNoZWthbWFsMTgiLCJhIjoiY2s1eTVxNGExMmQ5MDNubjExaWY5MjdvbSJ9.3nmdjWZmUCDNyRdlPo5gbg"
-    }
-  ).addTo(mymap)
-set_map()
+var mymap = L.map('mapid').setView([39.213,-111,489], 6);
+L.tileLayer(
+  "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+  {
+    attribution:
+      'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 32,
+    id: "mapbox/streets-v11",
+    accessToken:
+      "pk.eyJ1IjoiYWJoaXNoZWthbWFsMTgiLCJhIjoiY2s1eTVxNGExMmQ5MDNubjExaWY5MjdvbSJ9.3nmdjWZmUCDNyRdlPo5gbg"
+  }
+).addTo(mymap);
+var marker = L.marker([41.1, -112.47], { title: 'Great Salt Lake'})
+  .addTo(mymap).bindPopup("<b>Great Salt Lake</b><br>the largest salt water lake in the Western Hemisphere");
+var marker = L.marker([40.22, -111.8], { title: 'Utah Lake'})
+  .addTo(mymap).bindPopup("<b>Utah Lake</b><br>a shallow freshwater lake in center of Utah County,");
+// markers.push(marker)
 </script>
 
 {% endblock %}
@@ -63,14 +53,9 @@ set_map()
 
 {% block app_content %}
 <div>
-    <div class="column">
-      <h1>Stations</h1>
+    <div>
+      <h3>Lakes and Reservoirs</h3>
       <div id="mapid"></div>
-    </div>
-    <div class="column">
-       // <h3>{{fraction}} {{characteristic}}</h3>
-      <div id='timeseries_plot'></div>
-      <input type="button" onclick="downloadButton();" name="download-button" class="btn btn-default" value="Download Data">
     </div>
 </div>
 {% endblock %}
