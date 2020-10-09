@@ -20,7 +20,7 @@ setup(
     description='Water Quality - Utah lakes',
     long_description='',
     keywords='',
-    author='ddolder',
+    author='Danisa Dolder',
     author_email='danisadolder@gmail.com',
     url='',
     license='',
