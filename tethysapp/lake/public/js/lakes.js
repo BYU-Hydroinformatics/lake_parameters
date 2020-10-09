@@ -36,16 +36,6 @@ function searchButton() {
   charact_data()
 }
 
-function interpButton() {
-  lake_name = document.getElementById('select-lake').value
-  lake_data = document.getElementById('select-data').value
-  lake_param = document.getElementById('select-parameter').value
-  param_fract = document.getElementById('fraction2').value
-  param_bdl = document.getElementById('select-bdl').value
-  param_max = document.getElementById('maximum').value
-  $( "#timeseries_plot" ).empty()
-}
-
 function get_lake() {
   var loading = L.control({
       position: 'topleft'
